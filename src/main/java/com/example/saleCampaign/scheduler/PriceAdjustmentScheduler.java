@@ -20,7 +20,7 @@ public class PriceAdjustmentScheduler {
     @Autowired
     private ProductRepository productRepository;
 
-    @Autowired
+    @Autowired 
     private CampaignRepository campaignRepository;
 
     @Autowired
