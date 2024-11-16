@@ -29,7 +29,7 @@ public class PriceAdjustmentScheduler {
 
     @Autowired
     PriceHistoryRepository priceHistoryRepository;
-
+ 
     @Scheduled(cron = "50 42 14 1 8 *")
     public void adjustProductPrices() {
         System.out.printf("campaign started");
