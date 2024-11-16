@@ -17,7 +17,7 @@ public class CampaignController {
  
         @PostMapping("saveCampaign")
     public ResponseDTO<Campaign> saveCampaign(@RequestBody Campaign campaign) {
-        return campaignService.saveCampaign(campaign);
+        return campaignService.saveCampaign(campaign); 
     }
 
     @GetMapping("getCampaign")
