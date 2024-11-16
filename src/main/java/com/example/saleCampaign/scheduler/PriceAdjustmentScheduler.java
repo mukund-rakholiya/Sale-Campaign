@@ -43,7 +43,7 @@ public class PriceAdjustmentScheduler {
                 if (product != null) {
                     double discountAmount =  (product.getCurrentprice() * (discount.getDiscount() / 100));
                     double newPrice = (product.getCurrentprice() - discountAmount);
-
+ 
                     if (newPrice >= 0) {
                         product.setCurrentprice(newPrice);
                         product.setDiscount((product.getDiscount()+discount.getDiscount()));
