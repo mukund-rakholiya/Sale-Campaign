@@ -11,7 +11,7 @@ public class CampaignDiscount {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "campaign_id")
+    @JoinColumn(name = "campaign_id") 
     private Campaign campaign;
 
     @Column(name = "product_id")
