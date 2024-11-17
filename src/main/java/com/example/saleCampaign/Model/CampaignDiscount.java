@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Entity
 @Table(name = "campaign_discounts")
-public class CampaignDiscount { 
+public class CampaignDiscount {  
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
