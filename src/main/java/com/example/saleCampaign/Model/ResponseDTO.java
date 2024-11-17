@@ -10,7 +10,7 @@ public class ResponseDTO <T>{
     public ResponseDTO(T body,HttpStatus status,String message) {
         this.body = body;
         this.status = status;
-        this.message = message;
+        this.message = message; 
     }
 
     public T getBody() {
