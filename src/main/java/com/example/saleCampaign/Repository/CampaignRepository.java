@@ -3,7 +3,7 @@ package com.example.saleCampaign.Repository;
 import com.example.saleCampaign.Model.Campaign;
 import com.example.saleCampaign.Model.CampaignDiscount;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.Query; 
 import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
