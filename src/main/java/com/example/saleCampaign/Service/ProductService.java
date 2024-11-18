@@ -1,6 +1,6 @@
 package com.example.saleCampaign.Service;
 
-import com.example.saleCampaign.Model.*;
+import com.example.saleCampaign.Model.*; 
 import com.example.saleCampaign.Repository.CampaignRepository;
 import com.example.saleCampaign.Repository.PriceHistoryRepository;
 import com.example.saleCampaign.Repository.ProductRepository;
