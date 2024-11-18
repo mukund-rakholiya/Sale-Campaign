@@ -10,7 +10,7 @@ import com.example.saleCampaign.Repository.ProductRepository;
 import com.example.saleCampaign.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Component; 
 import java.time.LocalDate;
 import java.util.List;
 
