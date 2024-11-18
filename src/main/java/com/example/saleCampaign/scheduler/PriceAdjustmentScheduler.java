@@ -4,7 +4,7 @@ import com.example.saleCampaign.Model.Campaign;
 import com.example.saleCampaign.Model.CampaignDiscount;
 import com.example.saleCampaign.Model.PriceHistory;
 import com.example.saleCampaign.Model.Product;
-import com.example.saleCampaign.Repository.CampaignRepository;
+import com.example.saleCampaign.Repository.CampaignRepository; 
 import com.example.saleCampaign.Repository.PriceHistoryRepository;
 import com.example.saleCampaign.Repository.ProductRepository;
 import com.example.saleCampaign.Service.ProductService;
