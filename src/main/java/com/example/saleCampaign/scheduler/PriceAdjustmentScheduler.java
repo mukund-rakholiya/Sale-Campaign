@@ -18,7 +18,7 @@ import java.util.List;
 public class PriceAdjustmentScheduler {
 
     @Autowired
-    private ProductRepository productRepository;
+    private ProductRepository productRepository; 
 
     @Autowired 
     private CampaignRepository campaignRepository;
