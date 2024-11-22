@@ -1,5 +1,5 @@
 package com.example.saleCampaign.Repository;
-
+ 
 import com.example.saleCampaign.Model.PriceHistory;
 import com.example.saleCampaign.Model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
