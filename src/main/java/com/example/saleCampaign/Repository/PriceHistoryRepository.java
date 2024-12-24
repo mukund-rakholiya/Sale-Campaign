@@ -7,7 +7,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
 import java.util.Optional;
 
 public interface PriceHistoryRepository extends JpaRepository<PriceHistory, Integer> {
@@ -16,6 +19,7 @@ public interface PriceHistoryRepository extends JpaRepository<PriceHistory, Inte
     @Query(value = "SELECT * FROM price_history WHERE product_id = :productId AND date = :date ORDER BY id DESC LIMIT 1", nativeQuery = true)
     PriceHistory findTopByProductIdAndDate(@Param("productId") int productId, @Param("date") LocalDate date);
 
+<<<<<<< HEAD
     @Query(value = "select * from price_history where product_id = :productId",nativeQuery = true)
     List<PriceHistory> findByProductId(@Param("productId") int productId);
 
@@ -24,4 +28,6 @@ public interface PriceHistoryRepository extends JpaRepository<PriceHistory, Inte
 
     @Query(value = "select * from price_history where product_id = :productId and date< :date order by date desc limit 1",nativeQuery = true)
     PriceHistory findByProductIdAndBeforeDate(@Param("productId")int productId,@Param("date") LocalDate date);
+=======
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
 }

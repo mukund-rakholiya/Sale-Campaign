@@ -11,7 +11,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus; 
 import org.springframework.stereotype.Service;
 
+<<<<<<< HEAD
 import java.time.LocalDate;
+=======
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
 import java.util.List;
 
 @Service
@@ -29,6 +32,7 @@ public class ProductService {
     public ResponseDTO<Product> saveProduct(Product product){
         try{
             Product savedProduct = productRepository.save(product);
+<<<<<<< HEAD
             double discountAmount =  (product.getMrp() * (product.getDiscount() / 100));
 
             //save product
@@ -41,6 +45,10 @@ public class ProductService {
 
 //            List<PriceHistory> priceHistories = priceHistoryRepository.findByProductId(product.getId());
 
+=======
+            double discountAmount =  (product.getCurrentprice() * (product.getDiscount() / 100));
+//            saveHistory(product, product.getCurrentPrice(), LocalDate.now(), discountAmount);
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
             return new ResponseDTO<>(savedProduct, HttpStatus.OK, "Product saved successfully");
         } catch (Exception e){
             return new ResponseDTO<>(null, HttpStatus.INTERNAL_SERVER_ERROR, "failed to save product" + e.getMessage());
@@ -51,12 +59,17 @@ public class ProductService {
         try {
             List<Product> productsList = productRepository.saveAll(product);
             for (Product products : productsList){
+<<<<<<< HEAD
                 double discountAmount =  (products.getMrp() * (products.getDiscount() / 100));
 
                 //save price history
                 PriceHistory priceHistory = new PriceHistory();
                 LocalDate today = LocalDate.now();
                 priceHistoryRepository.save(new PriceHistory(products,products.getMrp(),products.getCurrentprice(),products.getDiscount(),discountAmount, today));
+=======
+                double discountAmount =  (products.getCurrentprice() * (products.getDiscount() / 100));
+//                saveHistory(products, products.getCurrentPrice(), LocalDate.now(), discountAmount);
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
             }
             return new ResponseDTO<>(productsList, HttpStatus.OK, "Successfully saved");
         } catch (Exception e) {
@@ -77,7 +90,10 @@ public class ProductService {
             Pageable pageable = PageRequest.of(page - 1, size);
             Page<Product> housesPage = productRepository.findAll(pageable);
             return new ResponseDTO<>(housesPage, HttpStatus.OK, "get houses");
+<<<<<<< HEAD
 
+=======
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
         } catch (Exception e) {
             return new ResponseDTO<>(null, HttpStatus.INTERNAL_SERVER_ERROR, "failed to get houses " + e.getMessage());
         }

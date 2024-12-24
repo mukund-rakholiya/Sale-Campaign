@@ -1,7 +1,10 @@
 package com.example.saleCampaign.Model;
 
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonBackReference;
+=======
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -17,6 +20,7 @@ public class PriceHistory {
 
     @ManyToOne
     @JoinColumn(name = "product_id")
+<<<<<<< HEAD
     @JsonBackReference
     private Product product;
 
@@ -26,6 +30,14 @@ public class PriceHistory {
         FinalPrice = finalPrice;
         this.discountInPercentage = discountInPercentage;
         this.discountAmount = discountAmount;
+=======
+    private Product product;
+
+    public PriceHistory(Product product, double price, double discountPrice, LocalDate localDate) {
+        this.product = product;
+        this.price = price;
+        this.discountPrice = discountPrice;
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
         this.localDate = localDate;
     }
 
@@ -34,6 +46,7 @@ public class PriceHistory {
     @Column(name = "price")
     private double price;
 
+<<<<<<< HEAD
     @Column(name = "final_price")
     private double FinalPrice;
 
@@ -49,6 +62,10 @@ public class PriceHistory {
     }
 
 
+=======
+    @Column(name = "discount_price")
+    private double discountPrice;
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
 
     @Column(name = "date")
     private LocalDate localDate;
@@ -85,6 +102,7 @@ public class PriceHistory {
         this.localDate = localDate;
     }
 
+<<<<<<< HEAD
     public void setFinalPrice(double finalPrice) {
         FinalPrice = finalPrice;
     }
@@ -117,4 +135,15 @@ public class PriceHistory {
     public void setDiscountAmount(double discountAmount) {
         this.discountAmount = discountAmount;
     }
+=======
+    public double getDiscountPrice() {
+        return discountPrice;
+    }
+
+    public void setDiscountPrice(double discountPrice) {
+        this.discountPrice = discountPrice;
+    }
+
+
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
 }

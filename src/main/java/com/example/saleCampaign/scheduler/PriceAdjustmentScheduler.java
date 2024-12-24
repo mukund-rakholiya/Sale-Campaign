@@ -12,7 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled; 
 import org.springframework.stereotype.Component;  
 import java.time.LocalDate;
+<<<<<<< HEAD
 import java.util.Date;
+=======
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
 import java.util.List;
 
 @Component 
@@ -27,12 +30,22 @@ public class PriceAdjustmentScheduler {
     @Autowired
     private ProductService productService;
 
+<<<<<<< HEAD
     @Autowired
     PriceHistoryRepository priceHistoryRepository;
  
     @Scheduled(cron = "0 0 0 * * *")
     public void adjustProductPrices() {
         System.out.println("campaign started "+LocalDate.now());
+=======
+
+    @Autowired
+    PriceHistoryRepository priceHistoryRepository;
+ 
+    @Scheduled(cron = "50 42 14 1 8 *")
+    public void adjustProductPrices() {
+        System.out.printf("campaign started");
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
         LocalDate today = LocalDate.now();
         List<Campaign> activeSales = campaignRepository.findAllByStartDate(today);
 
@@ -40,7 +53,10 @@ public class PriceAdjustmentScheduler {
             List<CampaignDiscount> discounts = campaign.getCampaignDiscounts();
             for (CampaignDiscount discount : discounts) {
                 Product product = productRepository.findById(discount.getProductId()).orElse(null);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
                 if (product != null) {
                     double discountAmount =  (product.getCurrentprice() * (discount.getDiscount() / 100));
                     double newPrice = (product.getCurrentprice() - discountAmount);
@@ -49,18 +65,30 @@ public class PriceAdjustmentScheduler {
                         product.setCurrentprice(newPrice);
                         product.setDiscount((product.getDiscount()+discount.getDiscount()));
                         productRepository.save(product);
+<<<<<<< HEAD
                         priceHistoryRepository.save(new PriceHistory(product,product.getCurrentprice()+discountAmount,newPrice, discount.getDiscount(),discountAmount , LocalDate.now()));
+=======
+                        System.out.println(product);
+//                        productService.saveHistory(product, newPrice, LocalDate.now(), discountAmount);
+                        priceHistoryRepository.save(new PriceHistory(product, newPrice, discountAmount, LocalDate.now()));
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
                     }
                 }
             }
         }
     }
 
+<<<<<<< HEAD
     @Scheduled(cron = "0 59 23 * * *")
     public void revertPrice(){
         System.out.println("campaign end "+ LocalDate.now());
         LocalDate today = LocalDate.now();
 
+=======
+   // @Scheduled(cron = "0 0 0 * * *")
+    public void revertPrice(){
+        LocalDate today = LocalDate.now();
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
         List<Campaign> endedSales = campaignRepository.findAllByEndDate(today);
 
         for (Campaign campaign : endedSales) {
@@ -69,6 +97,7 @@ public class PriceAdjustmentScheduler {
                 Product product = productRepository.findById(discount.getProductId()).orElse(null);
                 if (product != null) {
                     LocalDate date = campaign.getStartDate();
+<<<<<<< HEAD
 
                     //product history when compaign start
                     PriceHistory priceHistoryStart = priceHistoryRepository.findTopByProductIdAndDate(product.getId(), date);
@@ -93,6 +122,16 @@ public class PriceAdjustmentScheduler {
                         double discountAmount = price-finalPrice;
                         double discountInPercnetage = (discountAmount*100)/price;
                         priceHistoryRepository.save(new PriceHistory(product,price,finalPrice,discountInPercnetage,discountAmount,LocalDate.now()));
+=======
+                    PriceHistory priceHistory = priceHistoryRepository.findTopByProductIdAndDate(product.getId(), date);
+                    if (priceHistory != null) {
+                        double previousPrice = priceHistory.getDiscountPrice();
+                        product.setCurrentprice(priceHistory.getPrice() + previousPrice);
+                        productRepository.save(product);
+                        System.out.println(product);
+//                        productService.saveHistory(product, priceHistory.getPrice() + previousPrice, LocalDate.now(), priceHistory.getDiscountPrice());
+                        priceHistoryRepository.save(new PriceHistory(product, priceHistory.getPrice() + previousPrice, priceHistory.getDiscountPrice(), LocalDate.now()));
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
                     }
                 }
             }

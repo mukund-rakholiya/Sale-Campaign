@@ -1,6 +1,9 @@
 package com.example.saleCampaign.Model;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonBackReference;
+=======
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,8 +15,12 @@ public class CampaignDiscount {
     private int id;
 
     @ManyToOne
+<<<<<<< HEAD
     @JoinColumn(name = "campaign_id")
     @JsonBackReference
+=======
+    @JoinColumn(name = "campaign_id") 
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
     private Campaign campaign;
 
     @Column(name = "product_id")

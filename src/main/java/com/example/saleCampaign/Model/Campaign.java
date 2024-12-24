@@ -1,13 +1,25 @@
 package com.example.saleCampaign.Model;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
+=======
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.UUID;
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
 
 @Entity
 @Table(name = "campaigns")
 public class Campaign {
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -22,7 +34,10 @@ public class Campaign {
     private LocalDate endDate;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "campaign")
+<<<<<<< HEAD
     @JsonManagedReference
+=======
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
     private List<CampaignDiscount> campaignDiscounts;
 
     public Campaign(){

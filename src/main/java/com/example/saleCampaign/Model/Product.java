@@ -1,6 +1,9 @@
 package com.example.saleCampaign.Model;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+=======
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -33,7 +36,10 @@ public class Product {
     private int inventory;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+<<<<<<< HEAD
     @JsonManagedReference
+=======
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
     private List<PriceHistory> priceHistories;
 
     public Product() {

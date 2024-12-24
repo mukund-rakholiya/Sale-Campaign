@@ -27,8 +27,13 @@ public class ProductController {
     }
 
     @GetMapping("getAllPaginated")
+<<<<<<< HEAD
     public ResponseDTO<Page<Product>> getAllProductsPaginated(@RequestParam(value = "page")int page,
                                                                  @RequestParam(value = "size") int size) {
+=======
+    public ResponseDTO<Page<Product>> getAllProductsPaginated(@RequestParam(defaultValue = "1") int page,
+                                                                 @RequestParam(defaultValue = "10") int size) {
+>>>>>>> 76a03b7672949f5d75ac108297a83e9a5269b12e
         return productService.getAllPaginated(page, size);
     }
 
